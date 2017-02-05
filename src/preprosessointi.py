@@ -2,7 +2,6 @@
 # it also combines the ids with the ages
 
 import csv
-import statistics
 
 
 def getAgeDivision():
