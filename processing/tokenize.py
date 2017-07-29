@@ -40,13 +40,7 @@ class Tokenized:
     # punktuaatiota edeltää ja seuraa väli tai kirjain (seuratessa NOT d tai p)
 
     def splitWithPunctuation(self):
-        patterns = r"(\.+)", r"(\,+)", r"([?!]+)", r"(:)", r"(;)"
-
-        changed = self.sent
-
-        for p in patterns:
-            changed = re.sub(p, r" \1 ", changed)
-
-        self.sent = ' '.join(changed.split())
+        splitted = re.sub(r"(\w)?([\.\,?!]+|[:;]^[pPdD])", r"\1 \2 ", self.sent)
+        self.sent = ' '.join(splitted.split())
         return self.sent
 

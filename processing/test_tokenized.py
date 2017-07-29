@@ -84,12 +84,20 @@ class TestTokenized(TestCase):
         test_sentence1 = "nous verrons demain."
         test_sentence2 = "tu penses?!??!? je l'avais omis..."
         test_sentence3 = "je te pense..."
-        test_sentence4 = "nous nous penserons:)"
+        test_sentence4 = "nous nous penserons :)"
+        test_sentence5 = ";\')"
+        test_sentence6 = "moi :D"
+        test_sectence7 = "...:"
+        test_sectence8 = "asd,lol"
 
         t1 = tokenize.Tokenized(test_sentence1).splitWithPunctuation()
         t2 = tokenize.Tokenized(test_sentence2).splitWithPunctuation()
         t3 = tokenize.Tokenized(test_sentence3).splitWithPunctuation()
         t4 = tokenize.Tokenized(test_sentence4).splitWithPunctuation()
+        t5 = tokenize.Tokenized(test_sentence5).splitWithPunctuation()
+        t6 = tokenize.Tokenized(test_sentence6).splitWithPunctuation()
+        t7 = tokenize.Tokenized(test_sectence7).splitWithPunctuation()
+        t8 = tokenize.Tokenized(test_sectence8).splitWithPunctuation()
 
         with self.subTest():
             self.assertEqual("nous verrons demain .", t1)
@@ -102,6 +110,18 @@ class TestTokenized(TestCase):
 
         with self.subTest():
             self.assertEqual("nous nous penserons :)", t4)
+
+        with self.subTest():
+            self.assertEqual(";\')", t5)
+
+        with self.subTest():
+            self.assertEqual("moi :D", t6)
+
+        with self.subTest():
+            self.assertEqual("... :", t7)
+
+        with self.subTest():
+            self.assertEqual("asd , lol", t8)
 
     def test_formatter(self):
 
