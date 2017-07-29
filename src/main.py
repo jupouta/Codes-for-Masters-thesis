@@ -3,16 +3,20 @@ from src.extract_messages import messages
 
 
 def main():
-    m = messages(getAgeDivision())
+    m1, m2 = messages(getAgeDivision())
 
     old = open("messOld.txt", "w")
-    for o in m[0]:
-        old.writelines(o + " ")
+
+    for row in m1:
+        old.write(row + "\n")
+
     old.close()
 
     young = open("messYoung.txt", "w")
-    for y in m[1]:
-        young.writelines(y + " ")
+
+    for row in m2:
+        young.write(row + "\n")
+
     young.close()
 
 
