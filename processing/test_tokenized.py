@@ -126,13 +126,23 @@ class TestTokenized(TestCase):
     def test_formatter(self):
 
         test_sentence1 = "je te pense...;')"
-        test_sentence2 = "...et toi?"
+        test_sentence2 = "...et toi, <PRE_3>?"
+        test_sentence3 = "est-ce que tu es là-bas??"
+        test_sentence4 = "Si j'trouve le bâtiment^^"
 
         t1 = tokenize.Tokenized(test_sentence1).process()
         t2 = tokenize.Tokenized(test_sentence2).process()
+        t3 = tokenize.Tokenized(test_sentence3).process()
+        t4 = tokenize.Tokenized(test_sentence4).process()
 
         with self.subTest():
             self.assertEqual("je te pense ... ;')", t1)
 
         with self.subTest():
-            self.assertEqual("... et toi ?", t2)
+            self.assertEqual("... et toi , ?", t2)
+
+        with self.subTest():
+            self.assertEqual("est-ce que tu es là-bas ??", t3)
+
+        with self.subTest():
+            self.assertEqual("Si j' trouve le bâtiment ^^", t4)

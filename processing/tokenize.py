@@ -33,14 +33,10 @@ class Tokenized:
     def splitWithApostrophe(self):
         splitted = re.sub("(\w')", r"\1 ", self.sent)
         self.sent = ' '.join(splitted.split())
-        return splitted
+        return self.sent
 
     # 4
-    # hymiöt suckkaaa: tekee uudestaan erottelua for nothin'
-    # punktuaatiota edeltää ja seuraa väli tai kirjain (seuratessa NOT d tai p)
-
     def splitWithPunctuation(self):
         splitted = re.sub(r"(\w)?([\.\,?!]+|[:;]^[pPdD])", r"\1 \2 ", self.sent)
         self.sent = ' '.join(splitted.split())
         return self.sent
-
