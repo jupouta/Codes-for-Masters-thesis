@@ -11,6 +11,7 @@ listaa = ['Hey jvien de voir ton mp sur fb (waouh!) bref tjr partante pour ce so
 def process_messages(target):
     result = []
     for message in target:
+        # take a message, create an object, and start the tokenizing process
         tokenized = tokenize.Tokenized(message).process()
         result.append(tokenized)
     return result
@@ -22,11 +23,21 @@ def main():
     adultContents = adult.readlines()
     adult.close()
 
+    processedAdult = process_messages(adultContents)
+
     young = open("/Users/jultsi/Google Drive/Gradu/Koodi/src/messYoung.txt", "r")
     youngContents = young.readlines()
     young.close()
 
-    print(process_messages(listaa))
+    processedYoung = process_messages(youngContents)
+
+    fileYoung = open("youngProcessed.txt", "w")
+    fileYoung.writelines(processedYoung)
+    fileYoung.close()
+
+    fileAdult = open("adultProcessed.txt", "w")
+    fileAdult.writelines(processedAdult)
+    fileAdult.close()
 
 
 if __name__ == '__main__':

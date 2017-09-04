@@ -1,9 +1,9 @@
 from src.preprosessointi import getAgeDivision
-from src.extract_messages import messages
+from src.extract_messages import getMessages
 
 
 def main():
-    m1, m2 = messages(getAgeDivision())
+    m1, m2 = getMessages(getAgeDivision())
 
     old = open("messOld.txt", "w")
 

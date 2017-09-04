@@ -1,4 +1,4 @@
-# this file changes the QUESTIONNAIRE DATA to a different form in order the code to work
+# this file changes the QUESTIONNAIRE DATA to a different form
 # it also combines the ids with the ages
 
 import csv
@@ -12,7 +12,7 @@ def getAgeDivision():
 
         ages = {}
 
-        # ages with their corresponding ids
+        # ages with their corresponding ids to 'ages'
         for row in questionnaire:
             if row[3] not in ages:
                 ages[int(row[3])] = row[2]
@@ -28,7 +28,7 @@ def getAgeDivision():
 
         ids = {'old': [], 'young': []}
 
-        # only the old and young ids
+        # only the old and young ids to 'ids'
         for id in filteredAges:
             if (filteredAges[id] <= 55) and (filteredAges[id] >= 30):
                 ids['old'] += [id]
