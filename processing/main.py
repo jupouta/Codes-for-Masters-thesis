@@ -1,12 +1,5 @@
 from processing import tokenize
 
-listaa = ['Hey jvien de voir ton mp sur fb (waouh!) bref tjr partante pour ce soir? Bisous. <PRE_5>',
-          'Haha! C\'est bon ca! Ben éclate toi bien! Du coup tu échapes à la fac pour faire de l\'animation. T\'as trouvé le bon plan. Lol. Félicitations! Bisous.',
-          'Jsui en rdv. Je tapel juste après!<3',
-          'Alors on se voit à 15h45. Ton lieu sera le mien <SUR_4>. Love.',
-          'We r in Nooi. It\'s on the way to the tram. You can ask to the poeple front of the univ. Kiss',
-          'Bon, de ce ke jai compris faut sinscrire aux grp. Dans lENT à scolarité.Moi jai mythologie le jeudi de 12h45à14h15 ya 1TD jusko 15.jché pa +. Biz']
-
 
 def process_messages(target):
     result = []
@@ -32,11 +25,15 @@ def main():
     processedYoung = process_messages(youngContents)
 
     fileYoung = open("youngProcessed.txt", "w")
-    fileYoung.writelines(processedYoung)
+    for line in processedYoung:
+        if line:
+            fileYoung.write(line.lower() + "\n")
     fileYoung.close()
 
     fileAdult = open("adultProcessed.txt", "w")
-    fileAdult.writelines(processedAdult)
+    for line in processedAdult:
+        if line:
+            fileAdult.write(line.lower() + "\n")
     fileAdult.close()
 
 
