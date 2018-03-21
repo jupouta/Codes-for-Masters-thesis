@@ -4,4 +4,4 @@ Master's thesis code
 * Preprocessing and tokenizing the data
 * Classification for machine learning
 
-+ some visualizations
+* Some visualizations and descriptive statistics included
