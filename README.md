@@ -1,5 +1,7 @@
 Master's thesis code
 
 * Dividing the data
-* Preprocessing the data
+* Preprocessing and tokenizing the data
 * Classification for machine learning
+
++ some visualizations
