@@ -30,3 +30,27 @@ processing/processing.py
 processing/adultProcessed.txt
 
 processing/youngProcessed.txt
+
+features.csv
+
+featuresKuvaajat.R
+
+machine_learning/csvAttributs.csv
+
+machine_learning/csvfile.csv
+
+machine_learning/process_for_training.py
+
+machine_learning/process_for_training.py
+
+machine_learning/results.csv
+
+machine_learning/stats.py
+
+machine_learning/traincsv.csv
+
+machine_learning/visualization
+
+src/messYoung.csv
+
+machine_learning/process_for_training.py
