@@ -1,1 +1,5 @@
-Preprocessing the corpus for the Master's thesis
+Master's thesis code
+
+* Dividing the data
+* Preprocessing the data
+* Classification for machine learning
