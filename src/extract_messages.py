@@ -11,12 +11,42 @@ def getMessages(ages):
 
         messOld = []
         messYoung = []
+        
+        oldCount = {}
+        youngCount = {}
+        
+        allCount = {}
 
         # If id in old/young, add to 'messOld'/'messYoung'
         for row in sms:
+            
             if int(row[2]) in ages['old']:
                 messOld.append(row[4])
+                
+                if row[2] not in oldCount:
+                    oldCount[row[2]] = 1
+                else:
+                    oldCount[row[2]] += 1
             elif int(row[2]) in ages['young']:
                 messYoung.append(row[4])
+                
+                if row[2] not in youngCount:
+                    youngCount[row[2]] = 1
+                else:
+                    youngCount[row[2]] += 1
+            try:
+                allCount[row[2]] += 1
+            except KeyError:
+                allCount[row[2]] = 1
+                
 
-        return messOld, messYoung
+        return messOld, messYoung, oldCount, youngCount, allCount
+
+def countAverAmount(dic):
+    
+    count = 0
+    
+    for val in dic.values():
+        count += val
+
+    return count / len(dic.keys())
