@@ -34,7 +34,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, train_size=0.85)
 # hstacks are for concatenating BoW with extra features
 feature_names = X_train.columns.tolist()[1:] # extra features with BoW
 #analyzer='word', token_pattern="\S+", min_df=5
-countVect = CountVectorizer(analyzer='word', token_pattern="\S+")
+countVect = CountVectorizer(analyzer='word', token_pattern="\S+", min_df=5)
 
 # the comments are for training without BoW
 X_train_dtm = sp.sparse.hstack((countVect.fit_transform(X_train.message), X_train[feature_names].values), format='csr')

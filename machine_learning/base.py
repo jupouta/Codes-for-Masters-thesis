@@ -138,15 +138,12 @@ def process_corpus():
        
     def countApostr(mess):
         
-        mess = mess.split(" ")
-        
         count = 0
         
-        patt = r"[a-z]+'[bcdfghjklmnpqrstvwxz]+"
+        patt = r"[a-z]+'\s[bcdfgjklmnpqrstvwxz][a-z]+"
         
-        for m in mess:
-            if re.match(patt, m):
-                count += 1
+        if re.search(patt, mess):
+            count += 1
         
         return count
     
@@ -220,6 +217,8 @@ def process_corpus():
     resultData["jecount"] = resultData.message.apply(countLists, lists=jes)
     resultData["tropcount"] = resultData.message.apply(countingWords, word="trop")
     
+    resultData["apostrcount"] = resultData.message.apply(countApostr)
+
     originalRes = resultData.copy()
     resultData.message = resultData.message.apply(stopsOff)
     
@@ -229,7 +228,7 @@ def process_corpus():
     resultData["diacrcount"] = resultData.message.apply(countDiacr)
     resultData["kcount"] = resultData.message.apply(countingKs)
     resultData["conscount"] = resultData.message.apply(countLists, lists=cons)
-    resultData["apostrcount"] = resultData.message.apply(countApostr)
+
     
     resultData.message = resultData.message.apply(numbersOff)
     
