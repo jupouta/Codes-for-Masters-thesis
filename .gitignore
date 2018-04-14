@@ -54,3 +54,5 @@ machine_learning/visualization
 src/messYoung.csv
 
 machine_learning/process_for_training.py
+
+src/messAll.txt
